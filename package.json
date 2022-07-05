@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "form-data": "^4.0.0",
+    "formidable": "^2.0.1",
+    "fs": "0.0.1-security",
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.18",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev28k/HRS.git"
+  },
+  "author": "faizi.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev28k/HRS/issues"
+  },
+  "homepage": "https://github.com/dev28k/HRS#readme"
+}
