@@ -38,7 +38,7 @@ const db = mongoConfig.db;
 app.get('/', async function (req, res) {
     var dateTime = new Date();
     try {
-      res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace)+"\n"+mongoConfig.client)
+      res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace)+"\n"+JSON.stringify(mongoConfig.client))
     }catch (err) {
       res.send("Connection Error")
     }
