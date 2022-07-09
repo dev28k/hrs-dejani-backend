@@ -39,10 +39,10 @@ app.get('/', async function (req, res) {
     var dateTime = new Date();
     try {
       await mongoConfig.client.connect();
+      res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace))
     }catch (err) {
       res.send("Connection Error")
     }
-    res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace))
 })
 
 app.post('/register', async function (req, res) {
