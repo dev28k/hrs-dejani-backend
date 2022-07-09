@@ -35,10 +35,10 @@ app.use('/vid', express.static(__dirname + '/public/upload/Videos'))
 
 const db = mongoConfig.db;
 
-app.get('/', async function (req, res) {
+app.get('/', function (req, res) {
     var dateTime = new Date();
     try {
-      await mongoConfig.client.connect()
+      mongoConfig.client.connect()
       res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace)+"\n")
     }catch (err) {
       res.send("Connection Error")
@@ -105,32 +105,38 @@ app.post('/login', async function (req, res) {
 
     var img = fs.readFileSync(req.file.path);
     var encode_img = img.toString('base64');
- 
-    await mongoConfig.client.connect();
-    var dateTime = new Date();
-    var myobj = {     
-       _id: mongoose.Schema.Types.ObjectId,
-       class: req.body.class,
-       beds: req.body.beds,
-       capacity: req.body.capacity,
-       services: req.body.services,
-       fare: req.body.fare,
-       description: req.body.description,
-       imageLink: encode_img,
-       dateTime: dateTime.toString()
-    };
- 
-    // console.log(myobj)
-    db.collection("Rooms").insertOne(myobj, function(err) {
-       if (err) throw err;
-       console.log("Doc Inserted");
-       res.sendStatus(200);
-    });
+
+    try {
+      await mongoConfig.client.connect()
+      var dateTime = new Date();
+      var myobj = {     
+         _id: mongoose.Schema.Types.ObjectId,
+         class: req.body.class,
+         beds: req.body.beds,
+         capacity: req.body.capacity,
+         services: req.body.services,
+         fare: req.body.fare,
+         description: req.body.description,
+         imageLink: encode_img,
+         dateTime: dateTime.toString()
+      };
+   
+      // console.log(myobj)
+      db.collection("Rooms").insertOne(myobj, function(err) {
+         if (err) throw err;
+         console.log("Doc Inserted");
+         res.sendStatus(200);
+      });
+      
+    } catch (error) {
+         res.send("Connection Error")
+    }
 })
 
- app.get('/RoomList', async function (req, res) {
+ app.get('/RoomList', function (req, res) {
    try
-   { await mongoConfig.client.connect();
+   { 
+      mongoConfig.client.connect();
     // const collection = db.collection('Patients');
      // console.log(myobj)
  
