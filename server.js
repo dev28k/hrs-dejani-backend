@@ -35,9 +35,9 @@ app.use('/vid', express.static(__dirname + '/public/upload/Videos'))
 
 const db = mongoConfig.db;
 
-app.get('/', async function (req, res) {
+app.get('/', function (req, res) {
     var dateTime = new Date();
-    await mongoConfig.client.connect();
+   //  await mongoConfig.client.connect();
     res.send("Hotel Reservation API"+" "+dateTime+"\n"+JSON.stringify(db.s.namespace))
 })
 
