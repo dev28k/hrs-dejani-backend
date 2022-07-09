@@ -69,7 +69,7 @@ app.post('/register', async function (req, res) {
    } catch(err) {
       console.log(err)
    }
- })
+})
 
 app.post('/login', async function (req, res) {
     // console.log(req.query)
@@ -97,7 +97,7 @@ app.post('/login', async function (req, res) {
           }
          }
        })
- })
+})
 
  app.post('/roomInesrt', multer.upload.single("image"), async function (req, res) {
     // console.log(req.file);
@@ -126,7 +126,7 @@ app.post('/login', async function (req, res) {
        console.log("Doc Inserted");
        res.sendStatus(200);
     });
- })
+})
 
  app.get('/RoomList', async function (req, res) {
    try
@@ -142,7 +142,7 @@ app.post('/login', async function (req, res) {
    }catch(err) {
       console.log(err)
    }
-  })
+})
 
 // DELETE Room
 app.post('/deleteRoom', async function (req, res) {
@@ -157,7 +157,7 @@ app.post('/deleteRoom', async function (req, res) {
        console.log("1 document deleted");
         res.sendStatus(200)
      });
- })
+})
 
 app.post('/videoUpload', multer.uploadVid.single("video"), async function (req, res) {
    // console.log(req.file)
