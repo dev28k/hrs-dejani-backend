@@ -136,13 +136,13 @@ app.post('/login', async function (req, res) {
  app.get('/RoomList', function (req, res) {
    try
    { 
-      mongoConfig.client.connect();
+      mongoConfig.client.connect()
     // const collection = db.collection('Patients');
      // console.log(myobj)
  
     db.collection("Rooms").find().toArray(function(err, result) {
        if (err) throw err;
-       console.log(result);
+      //  console.log(result)
        res.send(result)
      });
    }catch(err) {
